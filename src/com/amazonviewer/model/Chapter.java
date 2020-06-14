@@ -34,7 +34,15 @@ public class Chapter extends Movie{
 	}
 	
 	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "\n :::CHAPTERS::::" +
+			   "\n Title: " + getTitle() +
+			   "\n Year: " + getYear() +
+			   "\n Creator: " + getCreator() +
+			   "\n Duration: " + getDuration();
+	}
 	
 	
 }

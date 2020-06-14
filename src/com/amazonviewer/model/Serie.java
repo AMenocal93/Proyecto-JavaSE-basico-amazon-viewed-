@@ -12,9 +12,10 @@ public class Serie extends Film {
 	//requiere los parametros que hereda de la clase Film (Super) 
 	//este metodo esta sobreescribiendo el comportamniento original del metodo en Film, al agregar un parametro
 	//que no esta en el metodo declarado en Film (Polimorfismo)
-	public Serie(String title, String genre, String creator, int duration, int sessionQuantity) {
+	public Serie(String title, String genre, String creator, int duration, int sessionQuantity, short year) {
 		super(title, genre, creator, duration);
 		this.sessionQuantity = sessionQuantity;
+		setYear(year);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -49,6 +50,18 @@ public class Serie extends Film {
 	}
 
     
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "\n ::::SERIES::::" +
+				"\n Title: " + getTitle() +
+				"\n Genero: " + getGenre() +
+				"\n Year: " + getYear() +
+				"\n Creator: " + getCreator() +
+				"\n Duration: " + getDuration() +
+				"\n Temporada: " + getSessionQuantity();
+	}
 
 	
 	

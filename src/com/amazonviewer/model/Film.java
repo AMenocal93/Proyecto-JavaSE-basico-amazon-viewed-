@@ -3,6 +3,7 @@ package com.amazonviewer.model;
 public class Film {
 
 	//Atributos compartidos con subclases Movie, Serie, Chapters
+	
 	private String title;
 	private String genre;
 	private String creator;

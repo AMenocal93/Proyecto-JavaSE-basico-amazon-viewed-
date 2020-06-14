@@ -1,6 +1,9 @@
 package com.amazonviewer.model;
+
+import java.util.Date;
+
 //Movie clase que hereda de la clase Film (extends Film)
-public class Movie extends Film {
+public class Movie extends Film implements IVisualizable{
 	
 	//Atributos propios de Movie
 	private int id;
@@ -49,10 +52,34 @@ public class Movie extends Film {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return " Title: " + getTitle() +
+		return  "\n ::::MOVIES::::" +
+				"\n Title: " + getTitle() +
 				"\n Genero: " + getGenre() +
 				"\n Year: " + getYear() +
 				"\n Creator: " + getCreator() + 
 				"\n Duration: " + getDuration();
+	}
+
+
+
+
+	@Override
+	public Date startToSee(Date dateI) {
+		// TODO Auto-generated method stub
+		return dateI;
+	}
+
+
+
+
+	@Override
+	public void stopToSee(Date dateI, Date dateF) {
+		// TODO Auto-generated method stub
+		if(dateF.getSeconds() > dateI.getSeconds()) {
+			setTimeViewed(dateF.getSeconds() - dateI.getSeconds());
+		}else {
+			setTimeViewed(0);
+		}
+		
 	}
 }

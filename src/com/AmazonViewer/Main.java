@@ -3,6 +3,9 @@ package com.AmazonViewer;
 import java.util.Date;
 
 import com.amazonviewer.model.Movie;
+import com.amazonviewer.model.Serie;
+import com.amazonviewer.model.Chapter;
+import com.amazonviewer.model.Book;
 
 public class Main {
 
@@ -14,6 +17,14 @@ public class Main {
 		//movie.showData();
 		Movie movie = new Movie("Oso", "Ficcion", "Isaac", 120, (short)2020);
 		System.out.println(movie);
+		
+		Serie serie = new Serie("Guerra de osos", "Action", "Roxana", 15, 1, (short)2020);
+	    System.out.println(serie);
+	    
+	    Chapter chapter = new Chapter("Capitulo 1: El oso destructor", "Action", "Roxana", 25, (short)2020, 1);
+	    System.out.println(chapter);
+	    
+	   
 		
 	
 		
