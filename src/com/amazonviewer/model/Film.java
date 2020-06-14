@@ -1,7 +1,8 @@
 package com.amazonviewer.model;
-
+//Film Clase padre (Herencia)
 public class Film {
 
+	//Atributos compartidos con subclases Movie, Serie, Chapters
 	private String title;
 	private String genre;
 	private String creator;
@@ -9,7 +10,7 @@ public class Film {
 	private short year;
 	private boolean viewed;
 	
-	
+	//Metodo constructor, permite la creacion de objetos de tipo film
 	public Film(String title, String genre, String creator, int duration) {
 		super();
 		this.title = title;
@@ -19,7 +20,8 @@ public class Film {
 	}
 	
 	
-	
+	//Metodos get y set (Encapsulamiento)
+	//permiten el acceso y la modificacion del valor de variables private 
 	public String getTitle() {
 		return title;
 	}

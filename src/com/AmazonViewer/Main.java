@@ -8,12 +8,14 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Movie movie = new Movie("Coco", "Animation", (short)2017);
-		movie.setTitle("Rambo");
-		movie.getTitle();
-		movie.showData();
+		//Movie movie = new Movie("Coco", "Animation", (short)2017);
+		//movie.setTitle("Rambo");
+		//movie.getTitle();
+		//movie.showData();
+		Movie movie = new Movie("Oso", "Ficcion", "Isaac", 120, (short)2020);
+		System.out.println(movie);
 		
-		//showMenu();
+	
 		
 		
 		
