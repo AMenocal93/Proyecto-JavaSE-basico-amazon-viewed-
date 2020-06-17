@@ -1,6 +1,8 @@
 package com.AmazonViewer;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 import com.amazonviewer.model.Movie;
 import com.amazonviewer.model.Serie;
@@ -11,22 +13,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//Movie movie = new Movie("Coco", "Animation", (short)2017);
-		//movie.setTitle("Rambo");
-		//movie.getTitle();
-		//movie.showData();
-		Movie movie = new Movie("Oso", "Ficcion", "Isaac", 120, (short)2020);
-		System.out.println(movie);
 		
-		Serie serie = new Serie("Guerra de osos", "Action", "Roxana", 15, 1, (short)2020);
-	    System.out.println(serie);
-	    
-	    Chapter chapter = new Chapter("Capitulo 1: El oso destructor", "Action", "Roxana", 25, (short)2020, 1);
-	    System.out.println(chapter);
-	    
-	   
-		
-	
+	showMenu();
 		
 		
 		
@@ -49,7 +37,8 @@ public static void showMenu() {
 		System.out.println("0. Exit");
 		
 		//Leer la respuesta del usuario
-		int response =1;
+		Scanner sc = new Scanner(System.in);
+		int response = Integer.valueOf(sc.nextLine());
 		switch (response) {
 		case 0:
 			//Salir
@@ -88,15 +77,46 @@ public static void showMenu() {
 
 public static void showMuvies() {
 	int exit = 1;
+	ArrayList<Movie> movies = Movie.makeMuvieList();//llamada al metodo makeMovie List, se muetra la lista de objetos
 	do {
 		System.out.println();
 		System.out.println("::MOVIES::");
 		System.out.println();
+		
+		for (int i = 0; i < movies.size(); i++) {
+			System.out.println(i+1 + ". " + movies.get(i).getTitle() + " Visto: " + movies.get(i).isViewed());
+		}
+		
+		System.out.println("0. Regresar al menu");
+		System.out.println();
+		
+		//Leer respuesta del usuario
+		Scanner sc = new Scanner(System.in);
+		int response = Integer.valueOf(sc.nextLine());
+		//validar si la respuesta del usuario es 0 que regrese al menu
+		if (response == 0) {
+			showMenu();
+		}
+		
+		Movie movieSelected = movies.get(response-1);
+		movieSelected.setViewed(true);
+		Date dateI = movieSelected.startToSee(new Date());
+		
+		for (int i = 0; i < 100000; i++) {
+			System.out.println("..........");
+		}
+		
+		//Al terminar de ver la pelicula
+		movieSelected.stopToSee(dateI, new Date());
+		System.out.println();
+		System.out.println("Viste: " + movieSelected);
+		System.out.println("Por : " + movieSelected.getTimeViewed() + "milisegundos");
+		
 	}while(exit != 0);
 }
 
 public static void showSeries() {
-	int exit = 2;
+	int exit = 0;
 	do {
 		System.out.println();
 		System.out.println("::Series::");
@@ -114,7 +134,7 @@ public static void showChapters() {
 }
 
 public static void showBooks() {
-	int exit = 3;
+	int exit = 0;
 	do {
 		System.out.println();
 		System.out.println("::BOOKS::");
@@ -123,7 +143,7 @@ public static void showBooks() {
 }
 
 public static void showMagazines() {
-	int exit = 4;
+	int exit = 0;
 	do {
 		System.out.println();
 		System.out.println("::MAGAZINES::");

@@ -1,11 +1,14 @@
 package com.amazonviewer.model;
+
+import java.util.ArrayList;
+
 //Movie clase que hereda de la clase Film (extends Film)
 public class Serie extends Film {
 	
 	//Atributos propios de Serie
 	private int id;
 	private int sessionQuantity;
-	private Chapter[] chapters;
+	private ArrayList<Chapter> chapters;
 	
 	
 	//Metodo constructor que proviene de Film, permite la creacion de objetos de tipo Serie, 
@@ -39,13 +42,13 @@ public class Serie extends Film {
 
 
 
-	public Chapter[] getChapters() {
+	public ArrayList<Chapter> getChapters() {
 		return chapters;
 	}
 
 
 
-	public void setChapters(Chapter[] chapters) {
+	public void setChapters(ArrayList<Chapter> chapters) {
 		this.chapters = chapters;
 	}
 

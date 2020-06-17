@@ -1,7 +1,7 @@
 package com.amazonviewer.model;
 
 import java.util.Date;
-
+//implements, indica que se esta implementando la interface IVisualizable
 public class Book extends Publications implements IVisualizable{
 	
 
@@ -65,6 +65,8 @@ public class Book extends Publications implements IVisualizable{
 		return detailBook;
 	}
 
+	
+	//Metodos sobreescritos provenientes de la interface, es aqui en donde se establse el comportamiento de los metodos.
 
 	@Override
 	public Date startToSee(Date dateI) {
@@ -76,7 +78,7 @@ public class Book extends Publications implements IVisualizable{
 	@Override
 	public void stopToSee(Date dateI, Date dateF) {
 		// TODO Auto-generated method stub
-		if(dateF.getSeconds() > dateI.getSeconds()) {
+		if(dateF.getSeconds() > dateI.getSeconds()) {//Validacion para determonar el tiempo de lectura y asignarlo al metodo timeReaded
 			setTimeReaded(dateF.getSeconds() - dateI.getSeconds());
 		}else {
 			setTimeReaded(0);

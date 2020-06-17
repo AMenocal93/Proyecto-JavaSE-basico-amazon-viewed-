@@ -1,8 +1,11 @@
 package com.amazonviewer.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
+
 //Movie clase que hereda de la clase Film (extends Film)
+//implements, indica que se esta implementando la interface IVisualizable
 public class Movie extends Film implements IVisualizable{
 	
 	//Atributos propios de Movie
@@ -62,7 +65,7 @@ public class Movie extends Film implements IVisualizable{
 
 
 
-
+	//Metodos sobreescritos provenientes de la interface, es aqui en donde se establse el comportamiento de los metodos.
 	@Override
 	public Date startToSee(Date dateI) {
 		// TODO Auto-generated method stub
@@ -75,11 +78,21 @@ public class Movie extends Film implements IVisualizable{
 	@Override
 	public void stopToSee(Date dateI, Date dateF) {
 		// TODO Auto-generated method stub
-		if(dateF.getSeconds() > dateI.getSeconds()) {
-			setTimeViewed(dateF.getSeconds() - dateI.getSeconds());
+		if(dateF.getTime() > dateI.getTime()) {//Validacion para determonar el tiempo de lectura y asignarlo al metodo timeViewed
+			setTimeViewed((int)(dateF.getTime() - dateI.getTime()));
 		}else {
 			setTimeViewed(0);
 		}
 		
+	}
+	//Metodo para crear objetos Movie, almacenador en una coleccion de objetos (ArrayList)
+	public static ArrayList<Movie> makeMuvieList(){
+		ArrayList<Movie> movies = new ArrayList();
+		
+		for (int i = 1; i <= 10; i++) {
+			movies.add(new Movie("Movie " + i, "Genero " + i, "Creador " + i, 120+i, (short)(2020+i)));
+		}
+		
+		return movies;
 	}
 }
