@@ -15,10 +15,11 @@ public class Serie extends Film {
 	//requiere los parametros que hereda de la clase Film (Super) 
 	//este metodo esta sobreescribiendo el comportamniento original del metodo en Film, al agregar un parametro
 	//que no esta en el metodo declarado en Film (Polimorfismo)
-	public Serie(String title, String genre, String creator, int duration, int sessionQuantity, short year) {
+	public Serie(String title, String genre, String creator, int duration, int sessionQuantity, ArrayList<Chapter> chapters) {
 		super(title, genre, creator, duration);
 		this.sessionQuantity = sessionQuantity;
-		setYear(year);
+		this.chapters = chapters;
+	
 		// TODO Auto-generated constructor stub
 	}
 
@@ -66,6 +67,15 @@ public class Serie extends Film {
 				"\n Temporada: " + getSessionQuantity();
 	}
 
+	public static ArrayList<Serie> makeSeriesList(){
+		ArrayList<Serie> serie = new ArrayList();
+		
+		for (int i = 1; i <= 5; i++) {
+			serie.add(new Serie("Serie " + i, "genero " + i, "creador " + i,1200,5,Chapter.makeChapteList()));
+		}
+		
+		return serie;
+	}
 	
 	
 }

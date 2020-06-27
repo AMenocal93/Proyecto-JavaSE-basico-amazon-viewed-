@@ -1,5 +1,7 @@
 package com.amazonviewer.model;
 
+import java.util.ArrayList;
+
 public class Chapter extends Movie{
 	
 	private int id;
@@ -44,5 +46,13 @@ public class Chapter extends Movie{
 			   "\n Duration: " + getDuration();
 	}
 	
+	public static ArrayList<Chapter> makeChapteList(){
+		ArrayList<Chapter> chapters = new ArrayList();
+		
+		for (int i = 1; i <= 5; i++) {
+			chapters.add(new Chapter("Capitulo " + i, "genero " + i, "creator " + i, 45, (short)(2017+i), i));
+		}
+		return chapters;
+	}
 	
 }
